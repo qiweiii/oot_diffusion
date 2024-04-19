@@ -30,7 +30,7 @@ class OOTDiffusionModel:
             cache_dir=self.cache_dir,
         )
         self.cmm = ClothesMaskModel(
-            hg_root=self.hg_root, cache_dir=self.cache_dir)
+            hg_root=self.hg_root, cache_dir=self.cache_dir, model_type=self.model_type)
         return self.pipe
 
     def get_pipe(self):
@@ -97,7 +97,7 @@ class OOTDiffusionModel:
             _,
             _,
             _,
-        ) = cmm.generate(model_image)
+        ) = cmm.generate(model_image, category)
 
         mask = mask.resize((768, 1024), Image.NEAREST)
         masked_vton_img = masked_vton_img.resize((768, 1024), Image.NEAREST)

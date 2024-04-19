@@ -19,7 +19,7 @@ DEFAULT_HG_ROOT = Path(os.getcwd()) / "oodt_models"
 
 
 class ClothesMaskModel:
-    def __init__(self, hg_root: str = None, cache_dir: str = None):
+    def __init__(self, hg_root: str = None, cache_dir: str = None, model_type: str = 'hd'):
         """
         Args:
             hg_root (str, optional): Path to the hg root directory. Defaults to CWD.
@@ -30,6 +30,7 @@ class ClothesMaskModel:
         self.hg_root = hg_root
         self.cache_dir = cache_dir
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model_type = model_type
 
         start_model_parse_load = time.perf_counter()
         self.human_parsing_model = BodyParsingModel(
@@ -55,25 +56,30 @@ class ClothesMaskModel:
     def generate(
         self,
         model_path: str | bytes | Path | Image.Image,
+        category: str,
     ):
         return self.generate_static(
+            category=category,
             model_path=model_path,
             human_parsing_model=self.human_parsing_model,
             pose_model=self.pose_model,
             hg_root=self.hg_root,
+            model_type=self.model_type,
         )
 
     @staticmethod
     def generate_static(
+        model_type: str,
         model_path: str | bytes | Path | Image.Image,
         human_parsing_model: BodyParsingModel,
         pose_model: PoseModel,
         hg_root: str = None,
+        category: str = "upperbody",
     ):
         if hg_root is None:
             hg_root = DEFAULT_HG_ROOT
 
-        category = "upperbody"
+        # category = "upperbody"
 
         if isinstance(model_path, Image.Image):
             model_image = model_path
@@ -93,8 +99,10 @@ class ClothesMaskModel:
         keypoints = pose_model.infer_keypoints(model_image)
         end_open_pose = time.perf_counter()
         print(f"Open pose in {end_open_pose - start_open_pose:.2f} seconds.")
+
+        # TODO: may need fix around here
         mask, mask_gray = get_mask_location(
-            "hd",
+            model_type,
             _category_get_mask_input[category],
             model_parse,
             keypoints,

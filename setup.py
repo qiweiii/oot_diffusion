@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="oot_diffusion",
     version="0.0.1",
-    description="A description of your project",
+    description="This is the qiwei version of oot_diffusion",
     author="Viktor Frede Andersen -> Qiwei Yang",
     author_email="yangqiwei97@gmail.com",
     url="https://github.com/qiweiii/oot_diffusion",

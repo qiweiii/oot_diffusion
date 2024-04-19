@@ -11,7 +11,7 @@ DEFAULT_HG_ROOT = Path(os.getcwd()) / "oodt_models"
 
 
 class OOTDiffusionModel:
-    def __init__(self, hg_root: str = None, cache_dir: str = None):
+    def __init__(self, hg_root: str = None, cache_dir: str = None, model_type='hd'):
         """
         Args:
             hg_root (str, optional): Path to the hg root directory. Defaults to CWD.
@@ -21,13 +21,16 @@ class OOTDiffusionModel:
             hg_root = DEFAULT_HG_ROOT
         self.hg_root = hg_root
         self.cache_dir = cache_dir
+        self.model_type = model_type
 
     def load_pipe(self):
         self.pipe = OOTDiffusion(
             hg_root=self.hg_root,
+            model_type=self.model_type,
             cache_dir=self.cache_dir,
         )
-        self.cmm = ClothesMaskModel(hg_root=self.hg_root, cache_dir=self.cache_dir)
+        self.cmm = ClothesMaskModel(
+            hg_root=self.hg_root, cache_dir=self.cache_dir)
         return self.pipe
 
     def get_pipe(self):
@@ -39,6 +42,8 @@ class OOTDiffusionModel:
         self,
         cloth_path: str | bytes | Path | Image.Image,
         model_path: str | bytes | Path | Image.Image,
+        # this is garment category
+        category: str = "upperbody",
         seed: int = 0,
         steps: int = 10,
         cfg: float = 2.0,
@@ -49,6 +54,7 @@ class OOTDiffusionModel:
             self.cmm,
             cloth_path,
             model_path,
+            category,
             self.hg_root,
             seed,
             steps,
@@ -62,6 +68,7 @@ class OOTDiffusionModel:
         cmm: ClothesMaskModel,
         cloth_path: str | bytes | Path | Image.Image,
         model_path: str | bytes | Path | Image.Image,
+        category: str,
         hg_root: str = None,
         seed: int = 0,
         steps: int = 10,
@@ -71,7 +78,7 @@ class OOTDiffusionModel:
         if hg_root is None:
             hg_root = DEFAULT_HG_ROOT
 
-        category = "upperbody"
+        # category = "upperbody"
 
         if isinstance(cloth_path, Image.Image):
             cloth_image = cloth_path

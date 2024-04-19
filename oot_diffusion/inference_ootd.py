@@ -15,12 +15,12 @@ from transformers import (
 
 from . import pipelines_ootd
 
-#! Necessary for OotdPipeline.from_pretrained
-sys.modules["pipelines_ootd"] = pipelines_ootd
-
 from .pipelines_ootd.pipeline_ootd import OotdPipeline
 from .pipelines_ootd.unet_garm_2d_condition import UNetGarm2DConditionModel
 from .pipelines_ootd.unet_vton_2d_condition import UNetVton2DConditionModel
+
+# Necessary for OotdPipeline.from_pretrained
+sys.modules["pipelines_ootd"] = pipelines_ootd
 
 
 class OOTDiffusion:

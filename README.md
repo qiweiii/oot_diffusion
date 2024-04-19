@@ -4,13 +4,20 @@ A packaged version of [OOTDiffusion](https://github.com/levihsu/OOTDiffusion) th
 
 No need to manually download models, checkpoints, weights etc. Should work out if the box.
 
-Needs CUDA and GPU
+Needs CUDA and GPU.
 
+OOTDiffusion 的打包版本.
 
-OOTDiffusion 的打包版本
+[Try on Replicate: dc (full body)](https://replicate.com/qiweiii/oot_diffusion_dc)
 
-[Try on Replicate](https://replicate.com/viktorfa/oot_diffusion)
+<!-- [Try on Replicate: hd (half body)](https://replicate.com/qiweiii/oot_diffusion_hd) -->
 
+## Qiwei Notes
+
+- **This private repo is created for deploying the full-body version api, so I can use them in my project**
+- Decision
+  - [cog-hd] use the viktorfa one for half-body api (later I can deploy one as well if needed)
+  - [cog-dc] use my deployed one for full-body api
 
 
 ## Instructions
@@ -67,6 +74,10 @@ display(mask_image)
 
 
 ## Credits
+
+The original author of [packaged ootd](https://github.com/viktorfa/oot_diffusion)
+
+The original author of [oot_cog_samples](https://github.com/viktorfa/oot_cog_samples)
 
 The original authors of [OOTDiffusion](https://github.com/levihsu/OOTDiffusion)
 

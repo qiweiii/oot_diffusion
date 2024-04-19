@@ -6,8 +6,6 @@ No need to manually download models, checkpoints, weights etc. Should work out i
 
 Needs CUDA and GPU.
 
-OOTDiffusion 的打包版本.
-
 [Try on Replicate: dc (full body)](https://replicate.com/qiweiii/oot_diffusion_dc)
 
 <!-- [Try on Replicate: hd (half body)](https://replicate.com/qiweiii/oot_diffusion_hd) -->
@@ -77,7 +75,7 @@ display(mask_image)
 
 The original author of [packaged ootd](https://github.com/viktorfa/oot_diffusion)
 
-The original author of [oot_cog_samples](https://github.com/viktorfa/oot_cog_samples)
+The original author of [oot cog samples](https://github.com/viktorfa/oot_cog_samples)
 
 The original authors of [OOTDiffusion](https://github.com/levihsu/OOTDiffusion)
 

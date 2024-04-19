@@ -9,13 +9,14 @@ Needs CUDA and GPU.
 [Try on Replicate: dc (full body)](https://replicate.com/qiweiii/oot_diffusion_dc)
 
 <!-- [Try on Replicate: hd (half body)](https://replicate.com/qiweiii/oot_diffusion_hd) -->
+[Try on Replicate: hd (half body)](https://replicate.com/viktorfa/oot_diffusion)
 
-## Qiwei Notes
+## Notes
 
-- **This private repo is created for deploying the full-body version api, so I can use them in my project**
+- **This repo is created for deploying the full-body version api**
 - Decision
-  - [cog-hd] use the viktorfa one for half-body api (later I can deploy one as well if needed)
-  - [cog-dc] use my deployed one for full-body api
+  - [cog-dc] for full-body api
+  - [cog-hd] for upper body
 
 
 ## Instructions

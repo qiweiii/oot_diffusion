@@ -177,3 +177,6 @@ pyrightconfig.json
 
 /models/
 .hf_cache/
+
+
+.cog

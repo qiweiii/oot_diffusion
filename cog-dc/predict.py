@@ -52,9 +52,9 @@ class Predictor(BasePredictor):
 
         result_paths: list[Path] = []
 
-        mask_path = Path(tempfile.mktemp(suffix=".png"))
-        mask.save(mask_path, "PNG")
-        result_paths.append(mask_path)
+        # mask_path = Path(tempfile.mktemp(suffix=".png"))
+        # mask.save(mask_path, "PNG")
+        # result_paths.append(mask_path)
 
         for i, img in enumerate(generated_images):
             result_path = Path(tempfile.mktemp(suffix=".png"))

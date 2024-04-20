@@ -74,7 +74,7 @@ def get_mask_location(
 
     arms_left = (parse_array == 14).astype(np.float32)
     arms_right = (parse_array == 15).astype(np.float32)
-    arms = arms_left + arms_right
+    # arms = arms_left + arms_right
 
     if category == "dresses":
         parse_mask = (

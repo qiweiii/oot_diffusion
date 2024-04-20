@@ -7,8 +7,8 @@ import time
 from oot_diffusion import OOTDiffusionModel
 
 DEFAULT_HG_ROOT = Path(os.getcwd()) / "ootd_models"
-example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_1.png"
-example_garment_path = Path(__file__).parent / "oot_diffusion/assets/cloth_1.jpg"
+example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_8.png"
+example_garment_path = Path(__file__).parent / "oot_diffusion/assets/dress_1.jpg"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="oms diffusion")
@@ -36,6 +36,7 @@ if __name__ == "__main__":
     model = OOTDiffusionModel(
         hg_root=args.hg_root,
         cache_dir=args.cache_dir,
+        model_type="dc"
     )
 
     start_time = time.perf_counter()

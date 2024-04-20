@@ -16,7 +16,7 @@ Needs CUDA and GPU.
 
 `pip install git+https://github.com/qiweiii/oot_diffusion.git`
 
-Examples for Colab. But can be used anywhere.
+Examples for Colab (T4 GPU is enough). But can be used anywhere.
 
 If you don't set hg_root, a folder called ootd_models will be created in your working dir.
 

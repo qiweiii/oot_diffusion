@@ -41,12 +41,12 @@ class Predictor(BasePredictor):
         """Run a single prediction on the model"""
 
         generated_images, mask = self.model.generate(
-            model_path=model_image,
             cloth_path=garment_image,
+            model_path=model_image,
+            category=garment_category,
             steps=steps,
             cfg=guidance_scale,
             seed=seed,
-            category=garment_category,
             num_samples=4,
         )
 

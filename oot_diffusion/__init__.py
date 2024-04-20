@@ -45,7 +45,6 @@ class OOTDiffusionModel:
         self,
         cloth_path: str | bytes | Path | Image.Image,
         model_path: str | bytes | Path | Image.Image,
-        # this is garment category
         category: str = "upperbody",
         seed: int = 0,
         steps: int = 10,

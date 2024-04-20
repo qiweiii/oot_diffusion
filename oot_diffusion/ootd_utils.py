@@ -119,8 +119,8 @@ def get_mask_location(
 
     # Load pose points
     pose_data = keypoint["pose_keypoints_2d"]
-    # pose_data = np.array(pose_data)
-    # pose_data = pose_data.reshape((-1, 2))
+    pose_data = np.array(pose_data)
+    pose_data = pose_data.reshape((-1, 2))
 
     im_arms_left = Image.new("L", (width, height))
     im_arms_right = Image.new("L", (width, height))

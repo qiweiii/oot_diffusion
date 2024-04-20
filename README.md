@@ -88,5 +88,3 @@ See [oms-Diffusion](https://github.com/ShineChen1024/oms-Diffusion) for the offi
 **I created this repo for deploying the full-body version to replicate**.
   - [cog-dc] for full-body api
   - [cog-hd] for upper body
-
-The two main models used are `OOTDiffusionModel` and `ClothesMaskModel`, seems other models and pipelines are not used.

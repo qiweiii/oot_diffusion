@@ -9,7 +9,7 @@ from oot_diffusion import OOTDiffusionModel
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        self.model = OOTDiffusionModel(None, None, 'dc')
+        self.model = OOTDiffusionModel(None, None, "dc")
         self.model.load_pipe()
 
         return self.model
@@ -19,14 +19,14 @@ class Predictor(BasePredictor):
         self,
         model_image: Path = Input(
             description="Clear picture of the model",
-            default="https://raw.githubusercontent.com/qiweiii/oot_diffusion/main/oot_diffusion/assets/model_1.png",
+            default="https://raw.githubusercontent.com/qiweiii/oot_diffusion/main/oot_diffusion/assets/model_8.png",
         ),
         garment_image: Path = Input(
             description="Clear picture of upper body garment",
-            default="https://raw.githubusercontent.com/qiweiii/oot_diffusion/main/oot_diffusion/assets/cloth_1.jpg",
+            default="https://raw.githubusercontent.com/qiweiii/oot_diffusion/main/oot_diffusion/assets/dress_1.jpg",
         ),
         garment_category: str = Input(
-            description="Garment category, upperbody, lowerbody, dress",
+            description="Garment category: upperbody, lowerbody, dress",
             default="upperbody",
             choices=["upperbody", "lowerbody", "dress"],
         ),
@@ -51,6 +51,10 @@ class Predictor(BasePredictor):
         )
 
         result_paths: list[Path] = []
+
+        mask_path = Path(tempfile.mktemp(suffix=".png"))
+        mask_image.save(mask_path, "PNG")
+        result_paths.append(mask_path)
 
         for i, img in enumerate(generated_images):
             result_path = Path(tempfile.mktemp(suffix=".png"))

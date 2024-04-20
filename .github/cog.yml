@@ -1,0 +1,27 @@
+name: Push to Replicate
+
+# GitHub Free plan may not have enough storage to push to Replicate
+# on:
+#   push:
+#     branches:
+#       - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Setup Cog
+        uses: replicate/setup-cog@v1
+        with:
+          token: ${{ secrets.REPLICATE_API_TOKEN }}
+
+      # - name: Download weights
+      #   run: cog run script/download-weights
+
+      - name: Push to Replicate
+        run: |
+          cd cog-dc
+          cog push r8.im/qiweiii/oot_diffusion_dc

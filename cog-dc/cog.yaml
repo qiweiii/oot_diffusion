@@ -9,6 +9,7 @@ build:
   python_packages:
     - "ninja==1.10.2"
     - "torch==2.2.0"
-    # note: branch or commit or tag is required, or it won't update
     - "git+https://github.com/qiweiii/oot_diffusion.git@main"
 predict: "predict.py:Predictor"
+# NOTE: may need to do `docker buildx prune -f` first to make sure it updates...
+# until this is fixed and my cog upgraded: https://github.com/replicate/cog/issues/1620

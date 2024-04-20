@@ -40,7 +40,7 @@ class Predictor(BasePredictor):
     ) -> list[Path]:
         """Run a single prediction on the model"""
 
-        generated_images, mask_image, mask = self.model.generate(
+        generated_images, mask = self.model.generate(
             model_path=model_image,
             cloth_path=garment_image,
             steps=steps,
@@ -51,10 +51,6 @@ class Predictor(BasePredictor):
         )
 
         result_paths: list[Path] = []
-
-        mask_image_path = Path(tempfile.mktemp(suffix=".png"))
-        mask_image.save(mask_image_path, "PNG")
-        result_paths.append(mask_image_path)
 
         mask_path = Path(tempfile.mktemp(suffix=".png"))
         mask.save(mask_path, "PNG")

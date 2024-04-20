@@ -119,4 +119,4 @@ class OOTDiffusionModel:
 
         masked_vton_img = masked_vton_img.convert("RGB")
 
-        return (images, mask, masked_vton_img)
+        return (images, masked_vton_img)

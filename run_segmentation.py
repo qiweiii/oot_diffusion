@@ -6,7 +6,7 @@ from oot_diffusion.inference_segmentation import ClothesMaskModel
 
 
 DEFAULT_HG_ROOT = Path(os.getcwd()) / "ootd_models"
-example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_1.png"
+example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_8.png"
 
 
 if __name__ == "__main__":
@@ -30,10 +30,12 @@ if __name__ == "__main__":
     cmm = ClothesMaskModel(
         hg_root=args.hg_root,
         cache_dir=args.cache_dir,
+        model_type="dc"
     )
 
     (masked_vton_img, mask, model_image, model_parse, face_mask) = cmm.generate(
-        model_path=args.person_path
+        model_path=args.person_path,
+        category="lowerbody"
     )
 
     # Save files

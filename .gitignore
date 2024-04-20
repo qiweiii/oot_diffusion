@@ -178,5 +178,6 @@ pyrightconfig.json
 /models/
 .hf_cache/
 
-
+output_img/
 .cog
+*-pose.pt

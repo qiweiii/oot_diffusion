@@ -125,6 +125,7 @@ class OOTDiffusion:
             random.seed(time.time())
             seed = random.randint(0, 0xFFFFFFFFFFFFFFFF)
         print("Initial seed: " + str(seed))
+        print("Category: " + category)
         generator = torch.manual_seed(seed)
 
         with torch.no_grad():

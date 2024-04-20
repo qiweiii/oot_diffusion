@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     (masked_vton_img, mask, model_image, model_parse, face_mask) = cmm.generate(
         model_path=args.person_path,
-        category="lowerbody"
+        category="dress"
     )
 
     # Save files

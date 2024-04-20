@@ -14,7 +14,7 @@ Needs CUDA and GPU.
 
 ## Instructions
 
-`pip install git+https://github.com/viktorfa/oot_diffusion.git`
+`pip install git+https://github.com/qiweiii/oot_diffusion.git`
 
 Examples for Colab. But can be used anywhere.
 
@@ -48,15 +48,14 @@ def generate_image():
     )
 
   return generated_images, mask_image
-
-
-generated_images, mask_image = generate_image()
 ```
 
 Display images
 
 ```python
 from IPython.display import display
+
+generated_images, mask_image = generate_image()
 
 for image in generated_images:
   display(image)

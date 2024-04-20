@@ -7,10 +7,10 @@ import time
 from oot_diffusion.inference_with_mask import OOTDiffusionWithMaskModel
 
 DEFAULT_HG_ROOT = Path(os.getcwd()) / "ootd_models"
-example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_1.png"
-example_garment_path = Path(__file__).parent / "oot_diffusion/assets/cloth_1.jpg"
+example_model_path = Path(__file__).parent / "oot_diffusion/assets/model_8.png"
+example_garment_path = Path(__file__).parent / "oot_diffusion/assets/dress_1.jpg"
 example_person_mask_path = (
-    Path(__file__).parent / "oot_diffusion/assets/model_1_mask.png"
+    Path(__file__).parent / "oot_diffusion/assets/model_8_mask.png"
 )
 
 if __name__ == "__main__":
@@ -34,13 +34,15 @@ if __name__ == "__main__":
         )
     if args.person_mask_path == str(example_person_mask_path):
         print(
-            f"Using example person mask image from {example_person_mask_path}. Use --person_mask_path to specify a different image."
+            f"Using example person mask image from {
+                example_person_mask_path}. Use --person_mask_path to specify a different image."
         )
     if args.hg_root == str(DEFAULT_HG_ROOT):
         print(
             f"Using default hg_root to store models path {DEFAULT_HG_ROOT}. Use --hg_root to specify a different path."
         )
 
+    # TODO: add support for full body models in `OOTDiffusionWithMaskModel`
     model = OOTDiffusionWithMaskModel(
         hg_root=args.hg_root,
         cache_dir=args.cache_dir,
